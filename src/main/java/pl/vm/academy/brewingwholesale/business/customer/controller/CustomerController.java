@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import pl.vm.academy.brewingwholesale.business.customer.service.CustomerService;
 
 @AllArgsConstructor
-@Controller
+@Controller("APP_CUSTOMER_customerController")
 public class CustomerController {
     CustomerService customerService;
 }

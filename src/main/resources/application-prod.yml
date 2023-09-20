@@ -1,0 +1,8 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+brewing-wholesale:
+  application:
+    custom-property: Prod Env

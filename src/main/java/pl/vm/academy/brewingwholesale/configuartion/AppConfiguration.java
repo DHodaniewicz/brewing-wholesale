@@ -2,6 +2,7 @@ package pl.vm.academy.brewingwholesale.configuartion;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import pl.vm.academy.brewingwholesale.business.article.repository.ArticleRepository;
 import pl.vm.academy.brewingwholesale.business.article.service.ArticleDetailsManagementService;
 import pl.vm.academy.brewingwholesale.business.article.service.ArticlePriceCalculationService;
@@ -29,8 +30,8 @@ public class AppConfiguration {
     }
 
     @Bean
-    NotificationEmailImplementation notificationEmailImplementation (NotificationRepository notificationRepository) {
-        return new NotificationEmailImplementation(notificationRepository);
+    NotificationEmailImplementation notificationEmailImplementation (NotificationRepository notificationRepository, Environment environment) {
+        return new NotificationEmailImplementation(notificationRepository, environment);
     }
 
     @Bean
@@ -49,7 +50,7 @@ public class AppConfiguration {
         return new NotificationWhatsAppImplementation(notificationRepository);
     }
 
-    @Bean
+    @Bean("APP_CUSTOMER_customerService")
     CustomerService customerService (CustomerRepository customerRepository) {
         return new CustomerService(customerRepository);
     }
